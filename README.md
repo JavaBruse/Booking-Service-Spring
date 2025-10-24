@@ -90,6 +90,10 @@ mvn spring-boot:run
 - `PATCH /api/user/{id}` - Обновить пользователя
 - `DELETE /api/user/{id}` - Удалить пользователя
 
+### Внутренние операции (INTERNAL)
+- `POST /api/rooms/{id}/confirm-availability` - Подтвердить доступность номера
+- `POST /api/rooms/{id}/release` - Снять блокировку номера
+
 ## Swagger документация
 (Открыт доступ в Security config)
 После запуска сервисов документация доступна по адресам:
