@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    gateway:
+      routes:
+        - id: booking-service-bookings
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/bookings/**
+        - id: booking-service-booking
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/booking/**
+        - id: booking-service-user
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/user/**
+        - id: hotel-service-hotels
+          uri: lb://hotel-management-service
+          predicates:
+            - Path=/api/hotels/**
+        - id: hotel-service-rooms
+          uri: lb://hotel-management-service
+          predicates:
+            - Path=/api/rooms/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+jwt:
+  secret: TiA+XVEuNl1vL0d9QFJ1RyZqUSEsIg==Zk5LWEtJMklXInF2Y2ZHMnhAejA+JUorJA==IHVrdVVyQ15fRXFwZjVnRV5BJn5XfDE4YQ==VFx0UQ==ey5yYWM=
