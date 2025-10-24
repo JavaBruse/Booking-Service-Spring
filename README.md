@@ -105,6 +105,7 @@ mvn spring-boot:run
 Каждый сервис использует in-memory H2 базу данных:
 - Hotel Management Service: http://localhost:8081/h2-console
 - Booking Service: http://localhost:8082/h2-console
+#### Полная схема базы данных [DATABASE_SCHEMA.md](DATABASE_SCHEMA.md)
 
 ## Мониторинг
 
